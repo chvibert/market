@@ -12,6 +12,9 @@ $post = get_entity($vars['guid']);
 if ($post) {
 	$tu = $post->time_updated;
 	$images = unserialize($post->images);
+        $postguid = $post->guid;
+}else{
+    $postguid = -1;
 }
 
 // Get plugin settings
@@ -146,7 +149,7 @@ echo '</div>';
 echo '<div><label>'.elgg_echo('market:uploadimages').'</label><span class="elgg-subtext mlm">'.elgg_echo("market:imagelimitation").'</span></div>';
 
 $image1 = elgg_view('market/thumbnail', array(
-			'guid' => $post->guid,
+			'guid' => $postguid,
 			'imagenum' => 1,
 			'size' => 'medium',
 			'class' => 'market-form-image',
@@ -156,7 +159,7 @@ $body1 = "<div><label>" . elgg_echo("market:uploadimage1") . "</label>";
 $body1 .= elgg_view("input/file",array('name' => 'upload1'));
 if ($images[1]) {
 	$body1 .= elgg_view('output/url', array(
-			'href' => "action/market/delete_img?guid={$post->guid}&img=1",
+			'href' => "action/market/delete_img?guid={$postguid}&img=1",
 			'text' => elgg_echo('delete'),
 			'is_action' => true,
 			'class' => 'elgg-button elgg-button-delete mts',
@@ -168,7 +171,7 @@ $body1 .= '</div>';
 echo elgg_view_image_block($image1, $body1);
 
 $image2 = elgg_view('market/thumbnail', array(
-			'guid' => $post->guid,
+			'guid' => $postguid,
 			'imagenum' => 2,
 			'size' => 'medium',
 			'class' => 'market-form-image',
@@ -178,7 +181,7 @@ $body2 = "<div><label>" . elgg_echo("market:uploadimage2") . "</label>";
 $body2 .= elgg_view("input/file",array('name' => 'upload2'));
 if ($images[2]) {
 	$body2 .= elgg_view('output/url', array(
-			'href' => "action/market/delete_img?guid={$post->guid}&img=2",
+			'href' => "action/market/delete_img?guid={$postguid}&img=2",
 			'text' => elgg_echo('delete'),
 			'is_action' => true,
 			'class' => 'elgg-button elgg-button-delete mts',
@@ -191,7 +194,7 @@ $body2 .= '</div>';
 echo elgg_view_image_block($image2, $body2);
 
 $image3 = elgg_view('market/thumbnail', array(
-			'guid' => $post->guid,
+			'guid' => $postguid,
 			'imagenum' => 3,
 			'size' => 'medium',
 			'class' => 'market-form-image',
@@ -201,7 +204,7 @@ $body3 = "<div><label>" . elgg_echo("market:uploadimage3") . "</label>";
 $body3 .= elgg_view("input/file",array('name' => 'upload3'));
 if ($images[3]) {
 	$body3 .= elgg_view('output/url', array(
-			'href' => "action/market/delete_img?guid={$post->guid}&img=3",
+			'href' => "action/market/delete_img?guid={$postguid}&img=3",
 			'text' => elgg_echo('delete'),
 			'is_action' => true,
 			'class' => 'elgg-button elgg-button-delete mts',
@@ -213,7 +216,7 @@ $body3 .= '</div>';
 echo elgg_view_image_block($image3, $body3);
 
 $image4 = elgg_view('market/thumbnail', array(
-			'guid' => $post->guid,
+			'guid' => $postguid,
 			'imagenum' => 4,
 			'size' => 'medium',
 			'class' => 'market-form-image',
@@ -223,7 +226,7 @@ $body4 = "<div><label>" . elgg_echo("market:uploadimage4") . "</label>";
 $body4 .= elgg_view("input/file",array('name' => 'upload4'));
 if ($images[4]) {
 	$body4 .= elgg_view('output/url', array(
-			'href' => "action/market/delete_img?guid={$post->guid}&img=4",
+			'href' => "action/market/delete_img?guid={$postguid}&img=4",
 			'text' => elgg_echo('delete'),
 			'is_action' => true,
 			'class' => 'elgg-button elgg-button-delete mts',
